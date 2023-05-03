@@ -2,6 +2,25 @@
 
 HashJsonPath is a simple gem to access hash and set hash value using json path.
 
+Example:
+- https://goessner.net/articles/JsonPath/
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'hash-json-path'
+```
+
+And then execute:
+
+    $ bundle install
+
+Or install it yourself as:
+
+    $ gem install hash-json-path
+
 ## Usage
 
 ```ruby
