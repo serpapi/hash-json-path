@@ -110,7 +110,7 @@ describe HashJsonPath do
 
   describe "custom separator" do
     it "uses the provided separator" do
-      hash = HashJsonPath.on(@hash).useSeparatorRegex(/[^\/]+/).set("a/b/c", { x: 100 })
+      hash = HashJsonPath.on(@hash).use_separator_regex(/[^\/]+/).set("a/b/c", { x: 100 })
       _(hash.get("a/b/c")).must_equal({ x: 100 })
     end
   end

@@ -10,7 +10,7 @@ class HashJsonPath
     @separator_regex = separator_regex
   end
 
-  def useSeparatorRegex(separator_regex)
+  def use_separator_regex(separator_regex)
     @separator_regex = separator_regex
     self
   end
@@ -28,7 +28,7 @@ class HashJsonPath
   end
   
   def set(path, value)
-    throw "Empty path is not allowed" if path.nil? || path.empty?
+    raise "Empty path is not allowed" if path.nil? || path.empty?
 
     *ancestors, leaf = access_keys(path)
     tampered_hash = ancestors.empty? ? @hash : @hash.dig(*ancestors)
@@ -37,23 +37,23 @@ class HashJsonPath
   end
 
   def merge(path, hash_value)
-    throw "Empty path is not allowed" if path.nil? || path.empty?
-    throw "Value must be a Hash" unless hash_value.is_a?(Hash)
+    raise "Empty path is not allowed" if path.nil? || path.empty?
+    raise "Value must be a Hash" unless hash_value.is_a?(Hash)
 
     *ancestors, leaf = access_keys(path)
     tampered_hash = ancestors.empty? ? @hash : @hash.dig(*ancestors)
-    throw "Trying to merge a non hash value" unless tampered_hash[leaf].is_a?(Hash)
+    raise "Trying to merge a non hash value" unless tampered_hash[leaf].is_a?(Hash)
     tampered_hash[leaf] = tampered_hash[leaf].merge(hash_value)
     self
   end
 
   def prepend(path, hash_value)
-    throw "Empty path is not allowed" if path.nil? || path.empty?
-    throw "Value must be a Hash" unless hash_value.is_a?(Hash)
+    raise "Empty path is not allowed" if path.nil? || path.empty?
+    raise "Value must be a Hash" unless hash_value.is_a?(Hash)
 
     *ancestors, leaf = access_keys(path)
     tampered_hash = ancestors.empty? ? @hash : @hash.dig(*ancestors)
-    throw "Trying to merge with a non hash value" unless tampered_hash[leaf].is_a?(Hash)
+    raise "Trying to merge with a non hash value" unless tampered_hash[leaf].is_a?(Hash)
     tampered_hash[leaf] = hash_value.merge(tampered_hash[leaf])
     self
   end
