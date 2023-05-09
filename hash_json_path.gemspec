@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "hash-json-path"
-  spec.version       = "1.0.0"
+  spec.version       = "1.0.1"
   spec.authors       = ['Terry Tan']
   spec.email         = ["tanyongsheng0805@gmail.com"]
   spec.description   = "HashJsonPath is a simple gem to access hash and set hash value using json path."
