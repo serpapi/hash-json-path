@@ -1,2 +1,2 @@
 require "minitest/autorun"
-require "hash_json_path"
+require "hash-json-path"
