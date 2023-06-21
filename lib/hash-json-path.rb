@@ -1,11 +1,11 @@
 class HashJsonPath
-  SEPERATOR_REGEX = /[^\[|^\]]+/ # e.g. local_results[0][1] => ["local_results", "0", "1"]
+  SEPARATOR_REGEX = /[^\[|^\]|^\.]+/ # e.g. local_results[0][1] => ["local_results", "0", "1"]
 
   def self.on(hash)
     new(hash)
   end
 
-  def initialize(hash, separator_regex = SEPERATOR_REGEX)
+  def initialize(hash, separator_regex = SEPARATOR_REGEX)
     @hash = hash
     @separator_regex = separator_regex
   end
